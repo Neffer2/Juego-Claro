@@ -28,6 +28,7 @@ class MainScene extends Phaser.Scene {
         this.load.image('serv8', './assets/img/SERV8.png');
         this.load.image('marcador', './assets/img/CLARO_EMPRESAS_MARCADOR.png');
         this.load.image('play', './assets/img/PLAY.png');
+        this.load.image('reset', './assets/img/CLARO_EMPRESAS_REINICIAR.png');
     }
  
     create(){
@@ -84,8 +85,19 @@ class MainScene extends Phaser.Scene {
             this.add.image((mContext.game.config.width/2), (mContext.game.config.height/2), 'marcadorFinal').setScale(.395, .455);           
             this.add.text((mContext.game.config.width/2), (mContext.game.config.height/2) - 23, score, { font: '64px Courier', fill: '#ff0000' });
 
+            let buttonReset = this.add.sprite((mContext.game.config.width/2), (mContext.game.config.height - 200), 'reset').setScale(.4).setInteractive();
+            buttonReset.on('pointerdown', function (pointer){
+                window.location.href = "https://claroleads.com/index.php/video-touch/";
+            })
 
-        }, 30000);
+            buttonReset.on('pointerover', function (pointer){   
+                buttonReset.setScale(.45)         
+            });
+    
+            buttonReset.on('pointerout', function (pointer){   
+                buttonReset.setScale(.4)         
+            });
+        }, 1000);
     }
 
     getRandomVelocity(){
