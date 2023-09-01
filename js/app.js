@@ -97,7 +97,7 @@ class MainScene extends Phaser.Scene {
             buttonReset.on('pointerout', function (pointer){   
                 buttonReset.setScale(.4)         
             });
-        }, 1000);
+        }, 30000);
     }
 
     getRandomVelocity(){
