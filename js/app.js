@@ -18,14 +18,14 @@ class MainScene extends Phaser.Scene {
         this.load.image('background', './assets/img/CLARO_EMPRESAS_FONDO.jpg');
         this.load.image('marcadorFinal', './assets/img/MARCADOR_FINAL.png');
         this.load.image('CLARO_EMPRESAS', './assets/img/CLARO_EMPRESAS_CIRCULO CLARO.png'); 
-        this.load.image('serv1', './assets/img/serv1.png');
-        this.load.image('serv2', './assets/img/serv2.png');
-        this.load.image('serv3', './assets/img/serv3.png');
-        this.load.image('serv4', './assets/img/serv4.png');
-        this.load.image('serv5', './assets/img/serv5.png');
-        this.load.image('serv6', './assets/img/serv6.png');
-        this.load.image('serv7', './assets/img/serv7.png');
-        this.load.image('serv8', './assets/img/serv8.png');
+        this.load.image('serv1', './assets/img/SERV1.png');
+        this.load.image('serv2', './assets/img/SERV2.png');
+        this.load.image('serv3', './assets/img/SERV3.png');
+        this.load.image('serv4', './assets/img/SERV4.png');
+        this.load.image('serv5', './assets/img/SERV5.png');
+        this.load.image('serv6', './assets/img/SERV6.png');
+        this.load.image('serv7', './assets/img/SERV7.png');
+        this.load.image('serv8', './assets/img/SERV8.png');
         this.load.image('marcador', './assets/img/CLARO_EMPRESAS_MARCADOR.png');
         this.load.image('play', './assets/img/PLAY.png');
     }
