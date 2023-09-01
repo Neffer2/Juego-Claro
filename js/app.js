@@ -34,7 +34,7 @@ class MainScene extends Phaser.Scene {
     create(){
         mContext = this;
         this.add.image((mContext.game.config.width/2), (mContext.game.config.height/2), 'background').setScale(.395, .455);
-        claroLogo = this.add.image((mContext.game.config.width/2), (mContext.game.config.height/2), 'CLARO_EMPRESAS').setScale(.22);
+        claroLogo = this.add.image((mContext.game.config.width/2), (mContext.game.config.height/2), 'CLARO_EMPRESAS').setScale(.21);
         claroLogo.setDepth(1);
         this.add.image(450, 850, 'marcador').setScale(.2);
         displayScore = this.add.text(448, 846, score, { font: '32px Courier', fill: '#ff0000' });
@@ -85,6 +85,21 @@ class MainScene extends Phaser.Scene {
             this.add.image((mContext.game.config.width/2), (mContext.game.config.height/2), 'marcadorFinal').setScale(.395, .455);           
             this.add.text((mContext.game.config.width/2), (mContext.game.config.height/2) - 23, score, { font: '64px Courier', fill: '#ff0000' });
 
+            // Fetch
+
+            const options = {
+                method: 'POST',
+                body: JSON.stringify({'score': score}),
+                headers: {
+                  'Content-Type': 'application/json',
+                },
+              };
+              
+            fetch('https://claroleads.com/claro_touch/controllers/controller.php', options)
+                .then((response) => response.json())
+                .then((data) => {});
+            /* ** */
+
             let buttonReset = this.add.sprite((mContext.game.config.width/2), (mContext.game.config.height - 200), 'reset').setScale(.4).setInteractive();
             buttonReset.on('pointerdown', function (pointer){
                 window.location.href = "https://claroleads.com/index.php/video-touch/";
@@ -113,17 +128,17 @@ class MainScene extends Phaser.Scene {
     }
 
     addScore(){
-        score += 1;
+        score += 1;        
         displayScore.setText(score);
     }
 
     update(){
         if (resize){
             claroLogo.scale += .0009;
-            resize = claroLogo.scale >= .26 ? !resize : resize;
+            resize = claroLogo.scale >= .25 ? !resize : resize;
         }else if (!resize) {
             claroLogo.scale -= .0009;
-            resize = claroLogo.scale <= .22 ? !resize : resize;            
+            resize = claroLogo.scale <= .21 ? !resize : resize;            
         }        
 
         if (servsMove){
